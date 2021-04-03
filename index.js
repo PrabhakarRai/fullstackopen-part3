@@ -1,7 +1,9 @@
 const express = require('express');
+const morgan = require('morgan');
+const cors = require('cors');
 
 const app = express()
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 let persons = [
     {
         id: 1,
@@ -30,7 +32,13 @@ let persons = [
     }
 ]
 
-app.use(express.json())
+app.use(express.static('build'))
+app.use(cors())
+app.use(express.json());
+
+morgan.token("json-data", (req, res) => req.method === "POST" ? JSON.stringify(req.body) : "")
+app.use(morgan(':method :url :status :response-time ms - :res[content-length] :json-data'));
+
 app.get("/", (req, res) => {
     res.send("<h1>Hello World!!</h1><p>This is Phonebook Service API.</p>");
 })
