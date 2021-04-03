@@ -4,6 +4,7 @@ const cors = require('cors');
 
 const app = express()
 const PORT = process.env.PORT || 3001;
+
 let persons = [
     {
         id: 1,
@@ -86,6 +87,6 @@ app.delete("/api/persons/:id", (req, res) => {
     res.status(204).end();
 })
 
-app.listen(PORT, "localhost", () => {
+app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
 })
