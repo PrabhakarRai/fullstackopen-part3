@@ -1,12 +1,25 @@
 ###
 GET http://localhost:3001
 
+
+###
+GET http://localhost:3001/about
+
+
 ###
 GET http://localhost:3001/info
 
 ###
 GET http://localhost:3001/api/persons
 
+###
+GET http://localhost:3001/api/persons/606992732fa03501b5a80b43
+
+###
+GET http://localhost:3001/api/persons/606992732fa03501b5a80b42
+
+###
+GET http://localhost:3001/api/persons/606992sdfs5a80b42
 
 ###
 POST http://localhost:3001/api/persons
@@ -18,4 +31,13 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3001/api/persons/1
+PUT http://localhost:3001/api/persons/6069aecbbe903804cf698ab6
+Content-Type: application/json
+
+{
+    "name": "Laxman Jee",
+    "number": "596-742-6514"
+}
+
+###
+DELETE http://localhost:3001/api/persons/6069a3a14c09a403529886bf
